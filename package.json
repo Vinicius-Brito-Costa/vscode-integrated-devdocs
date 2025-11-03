@@ -1,0 +1,80 @@
+{
+  "name": "intdevdocs",
+  "displayName": "Integrated Devdocs",
+  "description": "Search devdocs.io without leaving vscode.",
+  "version": "1.0.0",
+  "publisher": "Vinicius-Brito-Costa",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "author": {
+    "name": "Vinicius Brito Costa"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "./src/assets/icon.png",
+  "activationEvents": [
+    "onWebviewPanel:intdevdocs"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "intdevdocs",
+      "properties": {
+        "intdevdocs.url": {
+          "type": "string",
+          "default": "https://devdocs.io",
+          "description": "Devdocs application url.",
+          "pattern": "^((https?:)|(http?:))\/\/.*[^.\n\/]+$",
+          "patternErrorMessage": "Must be a valid http/https url.\nPattern: ^((https?:)|(http?:))\/\/.*[^.\n\/]+$"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extension.intdevdocs",
+        "title": "Search devdocs.io",
+        "category": "Integrated Devdocs"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.intdevdocs",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "extension.intdevdocs",
+        "key": "ctrl+r",
+        "mac": "cmd+r",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint",
+    "watch": "tsc -w -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vinicius-Brito-Costa/vscode-integrated-devdocs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@types/node": "^22",
+    "@types/vscode": "^1.100.0",
+    "@types/vscode-webview": "^1.57.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
+  }
+}
