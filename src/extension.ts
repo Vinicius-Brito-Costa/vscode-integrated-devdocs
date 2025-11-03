@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 const TAB_NAME = "IntDevdocs.io";
 const IFRAME_UPDATE_MESSAGE = "UPDATE_MESSAGE";
 const URL = 'https://devdocs.io#q=';
-const ICON_PATH = "https://github.com/Vinicius-Brito-Costa/vscode-integrated-devdocs/blob/master/src/assets/icon.png?raw=true";
+const ICON_PATH = "https://raw.githubusercontent.com/Vinicius-Brito-Costa/vscode-integrated-devdocs/refs/heads/main/src/assets/icon.png";
 const PARSED: Record<string, string> = {
     "shellscript": "bash"
 };
