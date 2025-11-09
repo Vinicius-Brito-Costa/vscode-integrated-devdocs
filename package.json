@@ -51,8 +51,8 @@
     "keybindings": [
       {
         "command": "extension.intdevdocs",
-        "key": "ctrl+r",
-        "mac": "cmd+r",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+option+r",
         "when": "editorTextFocus"
       }
     ]

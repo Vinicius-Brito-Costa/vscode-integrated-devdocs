@@ -2,48 +2,25 @@
 
 > Logo by @Lucide/https://github.com/danielbayley
 
-Demonstrates VS Code's [webview API](https://code.visualstudio.com/api/extension-guides/webview). This includes:
+![example](./assets/image.png)
 
-- Creating and showing a basic webview.
-- Dynamically updating a webview's content.
-- Loading local content in a webview.
-- Running scripts in a webview.
-- Sending message from an extension to a webview.
-- Sending messages from a webview to an extension.
-- Using a basic content security policy.
-- Webview lifecycle and handling dispose.
-- Saving and restoring state when the panel goes into the background.
-- Serialization and persistence across VS Code reboots.
+Search devdocs.io without leaving vscode, stay focused on what matters, your code.
 
-## Demo
+## Usage
 
-![demo](demo.gif)
+Select or leave the cursor pointer on the keyword you want to search, you then can:
 
-## VS Code API
+Right click -> Select the "Search devdocs.io" option
 
-### `vscode` module
+OR
 
-- [`window.createWebviewPanel`](https://code.visualstudio.com/api/references/vscode-api#window.createWebviewPanel)
-- [`window.registerWebviewPanelSerializer`](https://code.visualstudio.com/api/references/vscode-api#window.registerWebviewPanelSerializer)
+Windows: ctrl + R
+Mac: cmd + R
 
-## Running the example
+An new tab will open on the right side of your editor with the desired search.
 
-- Open this example in VS Code 1.47+
-- `npm install`
-- `npm run watch` or `npm run compile`
-- `F5` to start debugging
+## Parameters
 
-Run the `Cat Coding: Start cat coding session` to create the webview.
+### URL
 
-## Commands
-
-This extension provides the following commands:
-
-- `Cat Coding: Start cat coding session`: Creates and displays the Cat Coding webview.
-- `Cat Coding: Do refactor`: Halves the count of lines of code displayed in the Cat Coding webview.
-
-## Messages
-
-The Cat Coding webview can send the following messages to the extension:
-
-- `alert`: Sent when the cat introduces a bug. The message includes the text '🐛  on line ' followed by the current line count.
+Need to use a custom/local instance of devdocs.io? Change the variable and the extension will point to it.

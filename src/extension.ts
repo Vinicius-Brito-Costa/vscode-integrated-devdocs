@@ -1,12 +1,34 @@
 import * as vscode from 'vscode';
 
+const EXT_NAME = "intdevdocs";
 const TAB_NAME = "IntDevdocs.io";
 const IFRAME_UPDATE_MESSAGE = "UPDATE_MESSAGE";
-const URL = 'https://devdocs.io#q=';
+const URL = 'https://devdocs.io';
 const ICON_PATH = "https://raw.githubusercontent.com/Vinicius-Brito-Costa/vscode-integrated-devdocs/refs/heads/main/src/assets/icon.png";
 const PARSED: Record<string, string> = {
     "shellscript": "bash"
 };
+
+enum CONFIG_PARAM {
+    URL
+}
+
+function getParam(param: CONFIG_PARAM): string {
+    switch (param){
+        case CONFIG_PARAM.URL:
+            return _get_param("url")
+        default:
+            return ""
+    }
+}
+
+function _get_param(name: string): string {
+    let param: string = vscode.workspace.getConfiguration(EXT_NAME).get(name);
+    if (param) {
+        return param;
+    }
+    return "";
+}
 
 let currentPanel: vscode.WebviewPanel | undefined = undefined;
 function createWebview(uri: vscode.Uri): vscode.WebviewPanel{
@@ -92,7 +114,8 @@ export function activate(context: { subscriptions: vscode.Disposable[]; }) {
         lang = getDevDocLanguagueName(lang);
         
         if (lang) {
-            const uri = vscode.Uri.parse(URL + (lang ? lang + " " : "") + text);
+            let customUrl = getParam(CONFIG_PARAM.URL);
+            const uri = vscode.Uri.parse((customUrl.length > 0 ? customUrl : URL) + "#q=" + (lang ? lang + " " : "") + text);
             if (!currentPanel){
                 currentPanel = createWebview(uri);
                 currentPanel.onDidDispose(() => {
