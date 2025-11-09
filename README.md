@@ -14,8 +14,8 @@ Right click -> Select the "Search devdocs.io" option
 
 OR
 
-Windows: ctrl + R
-Mac: cmd + R
+Windows: ctrl+alt+R
+Mac: cmd+option+R
 
 An new tab will open on the right side of your editor with the desired search.
 

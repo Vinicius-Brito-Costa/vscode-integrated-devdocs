@@ -16,9 +16,9 @@ enum CONFIG_PARAM {
 function getParam(param: CONFIG_PARAM): string {
     switch (param){
         case CONFIG_PARAM.URL:
-            return _get_param("url")
+            return _get_param("url");
         default:
-            return ""
+            return "";
     }
 }
 
