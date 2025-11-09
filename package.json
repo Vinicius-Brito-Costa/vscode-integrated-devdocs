@@ -2,7 +2,7 @@
   "name": "intdevdocs",
   "displayName": "Integrated Devdocs",
   "description": "Search devdocs.io without leaving vscode.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Vinicius-Brito-Costa",
   "license": "MIT",
   "engines": {
