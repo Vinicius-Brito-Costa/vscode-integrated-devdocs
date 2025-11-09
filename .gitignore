@@ -12,3 +12,4 @@ tsconfig.lsif.json
 # Don't check in API files. These should be pulled in during install
 vscode*.d.ts
 .vscodeignore
+*.vsix

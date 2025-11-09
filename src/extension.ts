@@ -23,7 +23,7 @@ function getParam(param: CONFIG_PARAM): string {
 }
 
 function _get_param(name: string): string {
-    let param: string = vscode.workspace.getConfiguration(EXT_NAME).get(name);
+    const param: string | undefined = vscode.workspace.getConfiguration(EXT_NAME).get(name);
     if (param) {
         return param;
     }
@@ -114,7 +114,7 @@ export function activate(context: { subscriptions: vscode.Disposable[]; }) {
         lang = getDevDocLanguagueName(lang);
         
         if (lang) {
-            let customUrl = getParam(CONFIG_PARAM.URL);
+            const customUrl = getParam(CONFIG_PARAM.URL);
             const uri = vscode.Uri.parse((customUrl.length > 0 ? customUrl : URL) + "#q=" + (lang ? lang + " " : "") + text);
             if (!currentPanel){
                 currentPanel = createWebview(uri);
